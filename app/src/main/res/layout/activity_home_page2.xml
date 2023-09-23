@@ -6,27 +6,13 @@
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
     android:background="@color/primary"
-    tools:context=".activities.MainActivity">
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/imageBack"
-        android:layout_width="@dimen/_30sdp"
-        android:layout_height="@dimen/_30sdp"
-        android:layout_marginStart="@dimen/_16sdp"
-        android:layout_marginLeft="@dimen/_16sdp"
-        android:layout_marginTop="@dimen/_12sdp"
-        android:background="@drawable/background_icon"
-        android:padding="@dimen/_6sdp"
-        android:src="@drawable/ic_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:tint="@color/white"/>
+    tools:context=".activities.HomePageActivity">
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/imageProfile"
         android:layout_width="@dimen/_30sdp"
         android:layout_height="@dimen/_30sdp"
-        android:layout_marginStart="@dimen/_45sdp"
+        android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginLeft="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_12sdp"
         android:background="@color/icon_background"
@@ -35,22 +21,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:riv_corner_radius="@dimen/_8sdp"/>
 
-
-    
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageSignOut"
         android:layout_width="@dimen/_30sdp"
         android:layout_height="@dimen/_30sdp"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="@dimen/_12sdp"
-        android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_marginEnd="21dp"
         android:layout_marginRight="@dimen/_16sdp"
         android:background="@color/icon_background"
         android:padding="@dimen/_6sdp"
         android:src="@drawable/ic_logout"
+        android:tint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:tint="@color/white"/>
-    
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textName"
         android:layout_width="0dp"
@@ -76,35 +61,74 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageProfile">
 
+        <androidx.appcompat.widget.SearchView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:id="@+id/search"
+            app:iconifiedByDefault="false"
+            app:searchHintIcon="@null"
+            app:queryHint="Search..."
+            android:focusable="false"
+            android:background="@color/white"
+            app:closeIcon="@drawable/ic_baseline_close_24"
+            app:searchIcon="@drawable/ic_baseline_search_24"
+            app:layout_constraintEnd_toStartOf="@id/jobRecyclerView"/>
+
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/conversationRecyclerView"
+            android:id="@+id/jobRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_40sdp"
             android:clipToPadding="false"
             android:orientation="vertical"
             android:overScrollMode="never"
             android:padding="@dimen/_20sdp"
-            android:visibility="gone"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
-            android:layout_gravity="center"/>
-        
+            android:layout_gravity="center"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/textErrorMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_24sdp"
+            android:layout_marginEnd="@dimen/_24sdp"
+            android:gravity="center"
+            android:textColor="@color/error"
+            android:textSize="@dimen/_12sdp"
+            android:visibility="gone"/>
+
     </FrameLayout>
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabNewChat"
-        android:layout_width="wrap_content"
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_24sdp"
-        android:layout_marginRight="@dimen/_24sdp"
-        android:layout_marginBottom="@dimen/_24sdp"
-        android:contentDescription="@string/app_name"
-        android:src="@drawable/ic_baseline_chat_24"
-        android:backgroundTint="@color/primary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:tint="@color/white"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
