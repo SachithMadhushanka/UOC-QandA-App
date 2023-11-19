@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "85255991236",
-    "project_id": "uoc-qanda",
-    "storage_bucket": "uoc-qanda.appspot.com"
+    "project_number": "107456805743",
+    "project_id": "uoc-qanda-50a8e",
+    "storage_bucket": "uoc-qanda-50a8e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:85255991236:android:654ad73294ecfe275e3e91",
+        "mobilesdk_app_id": "1:107456805743:android:21ac9af9fc884a7844869a",
         "android_client_info": {
           "package_name": "com.example.uocqaapp"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyD5o0ySVE_W6xjSkrj1NGyFsPQDBhHNWY0"
+          "current_key": "AIzaSyA9oGEv_PENkDCsMH6Nz3X5H11XunzAGeQ"
         }
       ],
       "services": {
